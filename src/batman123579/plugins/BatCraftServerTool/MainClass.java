@@ -5,6 +5,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.event.player.PlayerJoinEvent;
 
 public class MainClass extends JavaPlugin{
 	
@@ -13,7 +14,11 @@ public class MainClass extends JavaPlugin{
 		getLogger().info("Welcome!");
 	}
 	public void onDisable(){
-		getLogger().info("It Turned Off!");
+		getLogger().info("Goodbye...!");
+	}
+	public void onPlayerJoin(PlayerJoinEvent evt) {
+		Player player = evt.getPlayer();
+        player.sendMessage("Welcome to the BatCraft hub!");
 	}
 	//commands
 	
@@ -26,6 +31,7 @@ public class MainClass extends JavaPlugin{
 				player.sendMessage(ChatColor.GREEN + "It has since turned into this HUGE minigames server! Enjoy! -Batman123579 (Th3BatHead)");
 			}
 		}
+		    
 	return false;
 	}
 	
